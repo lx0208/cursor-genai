@@ -127,7 +127,7 @@ class StreamlitChatUI:
         if not self._check_auth():
             # 清除默认的页面内容
             st.set_page_config(
-                page_title="Aslead Login",
+                page_title="ZM Login",
                 page_icon="🔒",
                 layout="centered"
             )
