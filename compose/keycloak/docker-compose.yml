@@ -1,0 +1,65 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+
+    # Note that the utf8mb4 character set is not supported due to different storage requirements for the utf8 character set.
+    # command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_general_ci
+
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/conf.d:/etc/mysql/conf.d
+
+    environment:
+      TZ: "Asia/Tokyo"
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: keycloak
+      MYSQL_USER: keycloak
+      MYSQL_PASSWORD: keycloak
+
+    ports:
+      - 3306:3306
+    restart: always
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.1.0
+    container_name: keycloak
+    command: start
+
+    environment:
+      TZ: "Asia/Tokyo"
+      # database vendor
+      KC_DB: mysql
+
+      KC_DB_URL: jdbc:mysql://mysql:3306/keycloak?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8
+      KC_DB_URL_HOST: mysql  # mysql container_name
+      KC_DB_USERNAME: keycloak
+      KC_DB_PASSWORD: keycloak
+
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+
+      # Enable health and metrics support
+      KC_HEALTH_ENABLED: "true"
+      KC_METRICS_ENABLED: "true"
+
+      # 接続設定
+      KC_HOSTNAME: "oidc"
+      KC_HTTP_ENABLED: "true"
+      KC_HTTPS_CERTIFICATE_FILE: "/data/certs/oidc.pem" # https://www.keycloak.org/server/all-config#category-hostname_v2
+      KC_HTTPS_CERTIFICATE_KEY_FILE: "/data/certs/oidc-key.pem"
+
+      KC_HOSTNAME_STRICT: "false"
+      KC_HOSTNAME_BACKCHANNEL_DYNAMIC: "false"
+      KC_HOSTNAME_DEBUG: "true"
+    volumes:
+      - /data/certs:/data/certs
+    ports:
+      - 8080:8080
+      - 8443:8443
+    depends_on:
+      - mysql
+    restart: always
