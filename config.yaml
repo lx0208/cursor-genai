@@ -3,4 +3,4 @@ keycloak:
   client_id: "jntm"
   client_secret: "BgrTGChItrdDPyr44Kca5J4UjCDviVZP"
   realm: "jntm"
-  redirect_uri: "http://localhost:8501" 
+  redirect_uri: "http://localhost:8502"
