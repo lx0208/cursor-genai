@@ -1,0 +1,47 @@
+server:
+  port: 8501
+
+ui:
+  title: "支援AI"
+  llms:
+    - type: "aws"
+      model: "claude-3-5-sonnet-20240620"
+    - type: "azure"
+      model: "chatgpt-4o"
+    - type: "gcp"
+      model: "gemini-1.5-flash"
+    - type: "cohere"
+      model: "command-r-plus"
+
+  functions:
+    - name: "yoboshoAI"
+      source:
+        count: 5
+        show_enabled: true
+      document:
+        default: ["yobosho"]
+        all: ["yobosho"]
+    - name: "フリー形式"
+      source:
+        count: 5
+        show_enabled: true
+      document:
+        default: ["日報", "通報", "サービス"]
+        all: ["日報", "通報", "サービス"]
+    - name: "ドキュメント検索"
+      source:
+        count: 5
+        show_enabled: true
+      document:
+        default: ["山水書", "問い合わせ"]
+        all: ["山水書", "問い合わせ"]
+
+auth:
+  enable: true
+
+keycloak:
+  server_url: "https://oidc:8443"
+  client_id: "jntm"
+  client_secret: "BgrTGChItrdDPyr44Kca5J4UjCDviVZP"
+  realm: "jntm"
+  redirect_uri: "http://localhost:8501/salesassist"

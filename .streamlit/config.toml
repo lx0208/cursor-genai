@@ -1,0 +1,13 @@
+[logger]
+level = "debug"
+messageFormat = "%(asctime)s %(message)s"
+
+[client]
+showErrorDetails = "full"
+toolbarMode = "viewer"
+showSidebarNavigation = true
+
+[server]
+port = 8501
+baseUrlPath = "salesassist"
+enableCORS = true
