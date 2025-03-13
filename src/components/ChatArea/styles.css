@@ -1,0 +1,302 @@
+.chat-area {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  overflow: hidden;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-input-area {
+  padding: 16px 24px;
+  border-top: 1px solid #f0f0f0;
+  background-color: white;
+}
+
+/* 空聊天状态 */
+.empty-chat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: rgba(0, 0, 0, 0.45);
+  text-align: center;
+  padding: 20px;
+}
+
+/* 加载状态 */
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
+  padding: 10px;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.loading-text {
+  margin-left: 10px;
+}
+
+/* 自定义气泡容器 */
+.custom-bubble {
+  margin-bottom: 16px;
+  max-width: 80%;
+}
+
+.custom-bubble.user {
+  align-self: flex-end;
+}
+
+.custom-bubble.assistant {
+  align-self: flex-start;
+}
+
+/* 消息气泡 */
+.message-bubble {
+  max-width: 80%;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  position: relative;
+}
+
+.user-message {
+  align-self: flex-end;
+  background-color: #e6f7ff;
+  border-radius: 16px 16px 0 16px;
+}
+
+.assistant-message {
+  align-self: flex-start;
+  background-color: #f5f5f5;
+  border-radius: 16px 16px 16px 0;
+}
+
+.message-content {
+  white-space: pre-wrap;
+  line-height: 1.6;
+}
+
+.message-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 5px;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.message-time {
+  margin-right: 10px;
+}
+
+/* 输入区域 */
+.input-container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.message-input {
+  width: 100%;
+  min-height: 80px;
+  max-height: 200px;
+  padding: 12px;
+  border: none;
+  resize: none;
+  font-family: inherit;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.message-input:focus {
+  outline: none;
+}
+
+.input-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: #fafafa;
+  border-top: 1px solid #f0f0f0;
+}
+
+.attachment-button {
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.send-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 欢迎屏幕 */
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 24px;
+  text-align: center;
+}
+
+.welcome-content {
+  max-width: 600px;
+}
+
+.welcome-content h1 {
+  font-size: 28px;
+  margin-bottom: 16px;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.welcome-description {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.65);
+  margin-bottom: 32px;
+}
+
+.welcome-button {
+  padding: 0 24px;
+  height: 48px;
+  font-size: 16px;
+}
+
+/* 自定义Ant Design X组件样式 */
+:global(.ant-x-welcome) {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+:global(.ant-x-bubble) {
+  border-radius: 12px !important;
+  padding: 12px 16px !important;
+}
+
+:global(.ant-x-bubble[data-placement='end']) {
+  background-color: #e6f7ff !important;
+  border-radius: 16px 16px 0 16px !important;
+}
+
+:global(.ant-x-bubble[data-placement='start']) {
+  background-color: #f5f5f5 !important;
+  border-radius: 16px 16px 16px 0 !important;
+}
+
+:global(.ant-x-sender) {
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+:global(.ant-x-attachments-wrapper) {
+  padding: 16px;
+  background-color: #fafafa;
+}
+
+/* 欢迎界面占位符 */
+.welcome-placeholder {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.welcome-placeholder button {
+  margin-top: 20px;
+}
+
+/* 消息容器和关联文件样式 */
+.assistant-message-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.message-text {
+  white-space: pre-wrap;
+  line-height: 1.6;
+}
+
+/* 内联文件列表 */
+.inline-file-list {
+  margin-top: 4px;
+}
+
+.file-divider {
+  margin: 8px 0;
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+.file-list-title {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.file-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  padding: 4px 8px;
+  background-color: rgba(0, 0, 0, 0.02);
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.file-item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.file-icon {
+  margin-right: 8px;
+  color: #1890ff;
+}
+
+.file-name {
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+/* 会话历史项样式 */
+.conversation-date {
+  display: block;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.conversation-item {
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.conversation-item:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.conversation-item.active {
+  background-color: #e6f7ff;
+} 

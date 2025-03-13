@@ -1,0 +1,72 @@
+.conversation-history {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.conversation-history-title {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.conversation-history-empty {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.conversation-item {
+  border-radius: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.conversation-item:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.conversation-item.active {
+  background-color: rgba(22, 119, 255, 0.1);
+}
+
+.conversation-item-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.conversation-item-icon {
+  margin-right: 12px;
+  font-size: 16px;
+}
+
+.conversation-item-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.conversation-date {
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.delete-button {
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.delete-button:hover {
+  color: #ff4d4f;
+}
+
+/* 自定义分隔线样式 */
+.conversation-history .ant-divider-horizontal.ant-divider-with-text-left {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.45);
+  margin: 16px 0 8px;
+} 
